@@ -1,4 +1,4 @@
-# Seven Essential Evolutiond of Design for Services
+# Seven Essential Evolutions of Design for Services
 1. Identifying actors
     - Frequent flyer
     - Family vacationer

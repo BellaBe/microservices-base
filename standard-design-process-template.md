@@ -1,4 +1,4 @@
-# OPM1 (Operating model)
+# OPM (Operating model)
 Use ADRS for decisions tracking
 ## Status 
 Accepted
