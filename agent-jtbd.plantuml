@@ -1,0 +1,11 @@
+@startuml Agent
+actor Agent
+participant "Agent Servicing" as AgS 
+participant "Reservations API" as rAPI
+participant "reservationCRUD" as rCRUD 
+
+AgS -> rAPI: checkRes(reservationId)
+rAPI -> rCRUD: reserve(data)
+rAPI -> rCRUD: cancel(reservationId)
+
+@enduml

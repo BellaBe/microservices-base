@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: "Airline Reservations Management API"
+  version: "1.0.0"
+tags:
+  - name: BookMe
+    description: API for Airline Management System
+servers:
+  - url: http://api.example.com/v1
+    description: Production Server
+paths:
+  /reservations/{reservation_id}:
+    put:
+      summary: Book or re-book a reservation
+      description: Example request ```PUT http://api.example.com/v1/reservations/sdljhqr974```
+      parameters:
+        - name: reservation_id
+          in: path
+          required: true
+          description: Unique identifier of the reservation being created or changed
+          schema:
+            type: string
+            example: sdljhqr974
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                outbound:
+                  type: object
+                  properties:
+                    flight_num:
+                      type: string
+                      example: AA253
+                    flight_date:
+                      type: string
+                      example: 2019-12-31T08:01:00
+                    seats:
+                      type: array
+                      items:
+                        type: string
+                returning:
+                  type: object
+                  properties:
+                    flight_num:
+                      type: string
+                      example: AA253
+                    flight_date:
+                      type: string
+                      example: 2019-12-31T08:01:00
+                    seats:
+                      type: array
+                      items:
+                        type: string
+              example:
+                [
+                  {
+                    outbound: {
+                      flight_num: "AA253",
+                      flight_date: "2019-12-31T08:01:00",
+                      seats: ["9C"]
+                    },
+                    returning: {
+                      flight_num: "AA253",
+                      flight_date: "2019-12-31T08:01:00",
+                      seats: ["9C"]
+                    }
+                  }
+                ]
+      responses:
+        '200':
+          description: Successful Reservation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reservation_id:
+                    type: string
+                    description: Some additional description
+                    example: sdljhqr974
+        '403':
+          description: Seat(s) unavailable. Booking failed
+          content:
+            application/json:
+              schema: 
+                type: string
+                description: detailed information
