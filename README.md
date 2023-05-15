@@ -1,5 +1,29 @@
-A collection of architectural decision records from the book Microservices Up & Running. These decision records use [Michael Nygard's LADR format](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+# OPM (Operating model)
+Use ADRS for decisions tracking
+## Status 
+Accepted
+## Context
+A microservices architecture is complex and
+we will need a way to keep track of important decision we make, so that we can revisit and re-evaluate them in the future.
+We'd prefer to use a lightweight, text based solution so that we dont have to install any new software tools.
 
+## Decision
+We've decided to use Michael Nygard's lightweight architectural
+decision record (LADR) [format](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions). LADR is text based and is
+lightweight enough to meet our needs. We'll keep each LADR record
+in its own text file and manage the files like code.
+
+We also considered the following alternative solutions:
+* Project management tooling (not selected, because we didn't want
+  to install tools)
+* Informal or 'word of mouth' record keeping (not reliable)
+
+## Consequences
+* We'll need to write decision records for key decisions
+* We'll need a source code management solution to manage decision record files
+
+
+A collection of architectural decision records
 # Operating model
 - [OPM-1: Decision tracking](operating-model/1-decision-tracking.md)
 - [OPM-2: Limit Team Size](operating-model/2-limit-team-size.md)
@@ -8,6 +32,17 @@ A collection of architectural decision records from the book Microservices Up & 
 - [OPM-5: Microservice Ownership](operating-model//5-microservice-ownership.md)
 
 # Infrastructure
+- [INF-1: Infrastructure as code](infrastructure/1-infrastructure-as-code.md)
+- [INF-2: Use Terraform for Infrastructure Changes](infrastructure/2-use-terraform.md)
+- [INF-3: Use a CICD Pipeline for Infrastructure Changes](infrastructure/3-cicd-infrastructure.md)
+- [INF-4: Use Github Actions for CI/CD Pipelines](infrastructure/4-github-actions-cicd.md)
+- [INF-5: Use Github for Code Management](infrastructure/5-use-github.md)
+- [INF-6: Host Microservices in AWS](infrastructure/6-use-AWS.md)
+- [INF-7: One Repository Per Environment](infrastructure/7-one-repo-per-env.md)
+- [INF-8: Use a Managed Kubernetes Service](infrastructure/8-use-EKS.md)
+- [INF-9: Deploy Microservices Using a GitOps Deployment Tool](infrastructure/9-use-gitops-tool.md)
+- [INF-10: Implement a Traefik Ingress Controller](infrastructure/10-trafek-ingress.md)
+- [INF-11: Use Shared and Managed Database Services](infrastructure/11-use-shared-managed-DB.md)
 # Microservice Design
 - [MSD-1: Use Standard Design Process](microservice-design/1-use-standard-design-process.md)
 - [MSD-2: Scope Design Using Key Actors](microservice-design/2-scope-design-using-key-actors.md)
@@ -22,8 +57,8 @@ A collection of architectural decision records from the book Microservices Up & 
 
 
 # Microservice Engineering
-- [MSE-1: Avoid Microservices Calling Each Other Directly](microservice-engineering/)
-- [MSE-2: Use Redis to Implement the Reservations Database]
-- [MSE-3: Start Microservices with Reusable Templates]
-- [MSE-4: Starting Microservices from Reusable Templates]
-- [MSE-5: Use Faux Git Submodules]
+- [MSE-1: Avoid Microservices Calling Each Other Directly](microservice-engineering/1-intra-MS-communication.md)
+- [MSE-2: Use Redis to Implement the Reservations Database](microservice-engineering/2-redis-for-reservations.md)
+- [MSE-3: Start Microservices with Reusable Templates](microservice-engineering/3-start-with-templates.md)
+- [MSE-4: Starting Microservices from Reusable Templates](microservice-engineering/4-healthcheck-template.md)
+- [MSE-5: Use Faux Git Submodules](microservice-engineering/5-faux-git-submodules.md)
